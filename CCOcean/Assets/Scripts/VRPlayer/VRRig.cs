@@ -37,7 +37,7 @@ public class VRRig : MonoBehaviour
         headBodyOffest = transform.position - headConstraint.position;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         transform.position = headConstraint.position + headBodyOffest;
         transform.forward = Vector3.Lerp(transform.forward,
