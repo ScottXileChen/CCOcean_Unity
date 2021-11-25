@@ -22,7 +22,7 @@ public class SpawnFish : MonoBehaviour
     [SerializeField] private float avoidanceUnitDist;
     [Range(0, 10)]
     [SerializeField] private float alinmentUnitDist;
-    [Range(0, 50)]
+    [Range(0, 100)]
     [SerializeField] private float boundUnitDist;
     [Range(0, 10)]
     [SerializeField] private float obstacleUnitDist;

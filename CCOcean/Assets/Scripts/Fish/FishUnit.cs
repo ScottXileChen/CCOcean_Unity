@@ -166,7 +166,7 @@ public class FishUnit : MonoBehaviour
     Vector3 BoundCalculate()
     {
         var centerOffset = getSpawnFish.transform.position - unitTransform.position;
-        bool isNearCenter = (centerOffset.magnitude >= getSpawnFish.BoundUnitDist * 0.9);
+        bool isNearCenter = (centerOffset.magnitude >= getSpawnFish.BoundUnitDist * 0.9f);
         return isNearCenter ? centerOffset.normalized : Vector3.zero;
     }
 
