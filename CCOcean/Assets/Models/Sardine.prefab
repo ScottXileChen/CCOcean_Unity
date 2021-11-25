@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 836486223210772330}
   - component: {fileID: 836486223201072460}
   - component: {fileID: 6825593434206763416}
+  - component: {fileID: -7288645904145760577}
   m_Layer: 0
   m_Name: Sardine
   m_TagString: Untagged
@@ -506,6 +507,27 @@ MonoBehaviour:
   - {x: -1, y: 0, z: 0}
   - {x: 0, y: 1, z: 0}
   - {x: 0, y: -1, z: 0}
+--- !u!205 &-7288645904145760577
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836486223210501630}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.40046015
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &836486223210503900
 GameObject:
   m_ObjectHideFlags: 0
