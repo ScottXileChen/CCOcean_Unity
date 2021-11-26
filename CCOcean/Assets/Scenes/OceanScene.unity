@@ -586,24 +586,48 @@ PrefabInstance:
       value: SpawnFish
       objectReference: {fileID: 0}
     - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
+      propertyPath: minSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
       propertyPath: spawnNum
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
       propertyPath: alinmentUnitDist
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
+      propertyPath: cohesionUnitDist
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
+      propertyPath: obstacleUnitDist
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
       propertyPath: avoidanceUnitDist
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
-      propertyPath: obstacleUnitWeight
+      propertyPath: alinmentUnitWeight
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
+      propertyPath: cohesionUnitWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
+      propertyPath: obstacleUnitWeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599398865420388439, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}
       propertyPath: avoidanceUnitWeight
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd84a98dd355014999a86a7e3a0ede5, type: 3}

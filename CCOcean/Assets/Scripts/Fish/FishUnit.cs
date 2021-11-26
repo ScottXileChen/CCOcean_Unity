@@ -176,6 +176,11 @@ public class FishUnit : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(unitTransform.position,unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask))
         {
+            if (hit.transform.gameObject.name == "LeftHand")
+            {
+                Debug.Log("Touch");
+            }
+            Debug.Log(hit.transform.gameObject.name);
             obstacleVector = FindBestDirectionToAvoidObstacle();
         }
         else
