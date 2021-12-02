@@ -7,6 +7,7 @@ public class FishUnit : MonoBehaviour
     [SerializeField] private float FOVangle;
     [SerializeField] private float smoothDamp;
     [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private LayerMask playerBodyMask;
     [SerializeField] private Vector3[] directionsToCheck;
 
     private List<FishUnit> cNeighbours = new List<FishUnit>();
@@ -174,7 +175,7 @@ public class FishUnit : MonoBehaviour
     {
         var obstacleVector = Vector3.zero;
         RaycastHit hit;
-        if(Physics.Raycast(unitTransform.position,unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask))
+        if(Physics.Raycast(unitTransform.position,unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask) || Physics.Raycast(unitTransform.position, unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, playerBodyMask))
         {
             if (hit.transform.gameObject.name == "LeftHand")
             {
@@ -195,7 +196,7 @@ public class FishUnit : MonoBehaviour
         if (currentDirectionVector != Vector3.zero)
         {
             RaycastHit hit;
-            if (!Physics.Raycast(unitTransform.position, unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask))
+            if (!Physics.Raycast(unitTransform.position, unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask) || Physics.Raycast(unitTransform.position, unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, playerBodyMask))
             {
                 return currentDirectionVector;
             }
@@ -206,7 +207,7 @@ public class FishUnit : MonoBehaviour
         {
             RaycastHit hit;
             var direction = unitTransform.TransformDirection(directionsToCheck[i].normalized);
-            if(Physics.Raycast(unitTransform.position, direction, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask))
+            if(Physics.Raycast(unitTransform.position, direction, out hit, getSpawnFish.ObstacleUnitDist, obstacleMask) || Physics.Raycast(unitTransform.position, unitTransform.forward, out hit, getSpawnFish.ObstacleUnitDist, playerBodyMask))
             {
                 float currentDist = (hit.point - unitTransform.position).sqrMagnitude;
                 if(currentDist > maxDist)
