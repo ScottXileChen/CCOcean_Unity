@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SpawnFish : MonoBehaviour
 {
+    enum GroupBehavior
+    {
+        stack_and_move_around = 0,
+        doge_and_swim_far = 1,
+    };
+
     //spawn setup
     [SerializeField] private FishUnit unitGameObject;
     [SerializeField] private int spawnNum;
@@ -53,6 +59,17 @@ public class SpawnFish : MonoBehaviour
     public float ObstacleUnitDist { get => obstacleUnitDist; set => obstacleUnitDist = value; }
     public float ObstacleUnitWeight { get => obstacleUnitWeight; set => obstacleUnitWeight = value; }
 
+    private GroupBehavior currentBehavior = GroupBehavior.stack_and_move_around;
+    private GroupBehavior CurrentBehavior
+    {
+        get => currentBehavior;
+        set
+        {
+            currentBehavior = value;
+            OnChangeBehavior(currentBehavior);
+        }
+    }
+
     void Start()
     {
         UnitsSpawn();
@@ -80,5 +97,36 @@ public class SpawnFish : MonoBehaviour
             units[i].GetSpawnFish(this);
             units[i].InitializeSpeed(Random.Range(MinSpeed, MaxSpeed));
         }
+    }
+
+    private void OnChangeBehavior(GroupBehavior behavior)
+    {
+        switch (behavior)
+        {
+            case GroupBehavior.stack_and_move_around:
+                minSpeed = 100;
+                maxSpeed = 100;
+
+                break;
+            case GroupBehavior.doge_and_swim_far:
+                transform.position += GetRandomPositionAroundFishGroup(5f);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Rock")
+        {
+            //int a = Random.Range(1, 3);
+            //currentBehavior = (GroupBehavior)a;
+        }
+    }
+
+    private Vector3 GetRandomPositionAroundFishGroup(float radius)
+    {
+        return Random.insideUnitSphere * radius;
     }
 }
