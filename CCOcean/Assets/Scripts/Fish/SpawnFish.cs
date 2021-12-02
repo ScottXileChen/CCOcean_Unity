@@ -48,7 +48,7 @@ public class SpawnFish : MonoBehaviour
     public FishUnit[] units { get; set; }
     public float MinSpeed { get => minSpeed; set => minSpeed = value; }
     public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-    public float CohesionUnitDist { get => cohesionUnitDist; }
+    public float CohesionUnitDist { get => cohesionUnitDist; set => cohesionUnitDist = value; }
     public float AvoidanceUnitDist { get => avoidanceUnitDist; set => avoidanceUnitDist = value; }
     public float AlinmentUnitDist { get => alinmentUnitDist; set => alinmentUnitDist = value; }
     public float CohesionUnitWeight { get => cohesionUnitWeight; set => cohesionUnitWeight = value; }
@@ -104,9 +104,12 @@ public class SpawnFish : MonoBehaviour
         switch (behavior)
         {
             case GroupBehavior.stack_and_move_around:
-                minSpeed = 100;
-                maxSpeed = 100;
-
+                CohesionUnitDist = 2;
+                AvoidanceUnitDist = 3;
+                alinmentUnitDist = 5;
+                cohesionUnitWeight = 1;
+                avoidanceUnitWeight = 3;
+                alinmentUnitWeight = 10;
                 break;
             case GroupBehavior.doge_and_swim_far:
                 transform.position += GetRandomPositionAroundFishGroup(5f);
@@ -120,8 +123,8 @@ public class SpawnFish : MonoBehaviour
     {
         if (other.tag == "Rock")
         {
-            //int a = Random.Range(1, 3);
-            //currentBehavior = (GroupBehavior)a;
+            int a = Random.Range(0, 1);
+            CurrentBehavior = (GroupBehavior)a;
         }
     }
 
