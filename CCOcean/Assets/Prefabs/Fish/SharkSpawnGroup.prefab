@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &218568927164512028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218568927164512026}
+  - component: {fileID: 218568927164512027}
+  - component: {fileID: -53528204153848781}
+  m_Layer: 0
+  m_Name: SharkSpawnGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218568927164512026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218568927164512028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218568927164512027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218568927164512028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee279fe962558c4baabcd0c042c41af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitGameObject: {fileID: 8102729958482735175, guid: ebcdd1aec2d5e854f8d01d5891a0da3d, type: 3}
+  spawnNum: 5
+  SpawnArea: {x: 10, y: 5, z: 10}
+  minSpeed: 2
+  maxSpeed: 3
+  cohesionUnitDist: 4
+  avoidanceUnitDist: 3
+  alinmentUnitDist: 3
+  boundUnitDist: 30
+  obstacleUnitDist: 6
+  cohesionUnitWeight: 1
+  avoidanceUnitWeight: 5
+  alinmentUnitWeight: 1
+  boundUnitWeight: 10
+  obstacleUnitWeight: 10
+--- !u!114 &-53528204153848781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218568927164512028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7772ce6fecb731e4fa5323aa3ff9e9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  wanderRadius: 30
+  wanderDistance: 10
+  wanderJitter: 3
