@@ -39,9 +39,18 @@ public class SharkInteractor : MonoBehaviour
         {
             case GroupBehavior.target:
                 wanderBehavior.enabled = false;
-                spawnFish.AvoidanceUnitWeight = 0f;
-                spawnFish.CohesionUnitWeight = 6f;
-                spawnFish.CohesionUnitDist = 10f;
+                spawnFish.AvoidanceUnitDist = 3f;
+                spawnFish.AlinmentUnitDist = 10f;
+                spawnFish.AlinmentUnitWeight = 10f;
+                spawnFish.AvoidanceUnitWeight = 3f;
+                spawnFish.CohesionUnitWeight = 1f;
+                spawnFish.CohesionUnitDist = 1f;
+                spawnFish.BoundUnitDist = 10f;
+                spawnFish.BoundUnitWeight = 100f;
+                for(int i=0; i<spawnFish.units.Length;++i)
+                {
+                    spawnFish.units[i].InitializeSpeed(5);
+                }
                 break;
             case GroupBehavior.wander:
                 wanderBehavior.enabled = true;
@@ -56,6 +65,14 @@ public class SharkInteractor : MonoBehaviour
         if (other.tag == "Meat")
         {
             CurrentBehavior = GroupBehavior.target;
+            spawnFish.transform.position = other.transform.position;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Meat" && CurrentBehavior == GroupBehavior.target)
+        {
             spawnFish.transform.position = other.transform.position;
         }
     }

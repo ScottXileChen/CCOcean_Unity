@@ -55,12 +55,12 @@ MonoBehaviour:
   avoidanceUnitDist: 3
   alinmentUnitDist: 3
   boundUnitDist: 30
-  obstacleUnitDist: 6
+  obstacleUnitDist: 10
   cohesionUnitWeight: 1
   avoidanceUnitWeight: 5
   alinmentUnitWeight: 1
   boundUnitWeight: 10
-  obstacleUnitWeight: 10
+  obstacleUnitWeight: 100
 --- !u!114 &-53528204153848781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,5 +100,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
