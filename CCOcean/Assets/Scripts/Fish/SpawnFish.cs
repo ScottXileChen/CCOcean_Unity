@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class SpawnFish : MonoBehaviour
 {
-    enum GroupBehavior
-    {
-        stack_and_move_around = 0,
-        doge_and_swim_far = 1,
-    };
-
     //spawn setup
     [SerializeField] private FishUnit unitGameObject;
     [SerializeField] private int spawnNum;
@@ -59,17 +53,6 @@ public class SpawnFish : MonoBehaviour
     public float ObstacleUnitDist { get => obstacleUnitDist; set => obstacleUnitDist = value; }
     public float ObstacleUnitWeight { get => obstacleUnitWeight; set => obstacleUnitWeight = value; }
 
-    private GroupBehavior currentBehavior = GroupBehavior.stack_and_move_around;
-    private GroupBehavior CurrentBehavior
-    {
-        get => currentBehavior;
-        set
-        {
-            currentBehavior = value;
-            OnChangeBehavior(currentBehavior);
-        }
-    }
-
     void Start()
     {
         UnitsSpawn();
@@ -97,39 +80,5 @@ public class SpawnFish : MonoBehaviour
             units[i].GetSpawnFish(this);
             units[i].InitializeSpeed(Random.Range(MinSpeed, MaxSpeed));
         }
-    }
-
-    private void OnChangeBehavior(GroupBehavior behavior)
-    {
-        switch (behavior)
-        {
-            case GroupBehavior.stack_and_move_around:
-                CohesionUnitDist = 2;
-                AvoidanceUnitDist = 3;
-                alinmentUnitDist = 5;
-                cohesionUnitWeight = 1;
-                avoidanceUnitWeight = 3;
-                alinmentUnitWeight = 10;
-                break;
-            case GroupBehavior.doge_and_swim_far:
-                transform.position += GetRandomPositionAroundFishGroup(5f);
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Rock")
-        {
-            int a = Random.Range(0, 1);
-            CurrentBehavior = (GroupBehavior)a;
-        }
-    }
-
-    private Vector3 GetRandomPositionAroundFishGroup(float radius)
-    {
-        return Random.insideUnitSphere * radius;
     }
 }

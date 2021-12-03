@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Rock
+  - Meat
   layers:
   - Default
   - TransparentFX

@@ -50,6 +50,9 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
+  playerBodyMask:
+    serializedVersion: 2
+    m_Bits: 0
   directionsToCheck:
   - {x: 1, y: 0, z: 0}
   - {x: -1, y: 0, z: 0}
