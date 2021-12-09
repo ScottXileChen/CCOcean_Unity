@@ -34,7 +34,7 @@ public class SpawnFish : MonoBehaviour
     [SerializeField] private float avoidanceUnitWeight;
     [Range(0, 10)]
     [SerializeField] private float alinmentUnitWeight;
-    [Range(0, 10)]
+    [Range(0, 100)]
     [SerializeField] private float boundUnitWeight;
     [Range(0, 100)]
     [SerializeField] private float obstacleUnitWeight;
