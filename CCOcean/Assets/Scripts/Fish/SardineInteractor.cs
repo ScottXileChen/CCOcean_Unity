@@ -7,9 +7,14 @@ public class SardineInteractor : MonoBehaviour
 {
     enum GroupBehavior
     {
-        stack_and_move_around = 0,
-        doge_and_swim_far = 1,
+        origin = 0,
+        stack_and_move_around = 1,
+        doge_and_swim_far = 2,
     };
+    
+    private float currentTime = 0;
+    [SerializeField]
+    private float delyTime = 0;
 
     private GroupBehavior currentBehavior = GroupBehavior.stack_and_move_around;
     private GroupBehavior CurrentBehavior
@@ -27,12 +32,34 @@ public class SardineInteractor : MonoBehaviour
     private void Start()
     {
         spawnFish = GetComponent<SpawnFish>();
+        currentTime = delyTime;
+    }
+
+    private void Update()
+    {
+        if (currentBehavior != GroupBehavior.origin)
+        {
+            if (currentTime <= 0)
+            {
+                OnChangeBehavior(GroupBehavior.origin);
+                currentTime = delyTime;
+            }
+            currentTime -= Time.deltaTime;
+        }
     }
 
     private void OnChangeBehavior(GroupBehavior behavior)
     {
         switch (behavior)
         {
+            case GroupBehavior.origin:
+                spawnFish.CohesionUnitDist = 5;
+                spawnFish.AvoidanceUnitDist = 2;
+                spawnFish.AlinmentUnitDist = 2;
+                spawnFish.CohesionUnitWeight =5;
+                spawnFish.AvoidanceUnitWeight = 2;
+                spawnFish.AlinmentUnitWeight = 5;
+                break;
             case GroupBehavior.stack_and_move_around:
                 spawnFish.CohesionUnitDist = 2;
                 spawnFish.AvoidanceUnitDist = 3;
