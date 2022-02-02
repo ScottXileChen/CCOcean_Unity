@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1788510499265774092}
-  - component: {fileID: 8102729958482735175}
   - component: {fileID: 6933336865674794939}
-  m_Layer: 8
+  - component: {fileID: 459893394460550476}
+  - component: {fileID: 1075329726945633111}
+  - component: {fileID: 2470565755285494293}
+  m_Layer: 6
   m_Name: Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,31 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8102729958482735175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788510499265774085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe58bc23327533458b26db24e369feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FOVangle: 270
-  smoothDamp: 10
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
-  playerBodyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  directionsToCheck:
-  - {x: 1, y: 0, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: 0, y: 1, z: 0}
-  - {x: 0, y: -1, z: 0}
 --- !u!205 &6933336865674794939
 LODGroup:
   m_ObjectHideFlags: 0
@@ -79,6 +56,51 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!95 &459893394460550476
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788510499265774085}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 39d1d561405e53c4fb35e73a03627611, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2773e77827fe54653aab7dc5006e0b8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1075329726945633111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788510499265774085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f28cdb1cf446724089f5a02ce532c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothDamp: 1
+--- !u!65 &2470565755285494293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788510499265774085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 5.700799}
+  m_Center: {x: 0, y: 0, z: 0.058857918}
 --- !u!1 &8281755252785597356
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +112,7 @@ GameObject:
   - component: {fileID: 607955712007232214}
   - component: {fileID: 2974454127299158879}
   - component: {fileID: 557737965471069016}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

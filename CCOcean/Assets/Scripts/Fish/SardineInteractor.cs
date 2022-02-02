@@ -35,18 +35,18 @@ public class SardineInteractor : MonoBehaviour
         currentTime = delyTime;
     }
 
-    private void Update()
-    {
-        if (currentBehavior != GroupBehavior.origin)
-        {
-            if (currentTime <= 0)
-            {
-                OnChangeBehavior(GroupBehavior.origin);
-                currentTime = delyTime;
-            }
-            currentTime -= Time.deltaTime;
-        }
-    }
+    //private void Update()
+    //{
+    //    //if (currentBehavior != GroupBehavior.origin)
+    //    //{
+    //    //    if (currentTime <= 0)
+    //    //    {
+    //    //        OnChangeBehavior(GroupBehavior.origin);
+    //    //        currentTime = delyTime;
+    //    //    }
+    //    //    currentTime -= Time.deltaTime;
+    //    //}
+    //}
 
     private void OnChangeBehavior(GroupBehavior behavior)
     {

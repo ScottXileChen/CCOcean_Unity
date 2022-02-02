@@ -6,6 +6,7 @@ public class SpawnFish : MonoBehaviour
 {
     //spawn setup
     [SerializeField] private FishUnit unitGameObject;
+    [SerializeField] private SharkMove sharkGameObject;
     [SerializeField] private int spawnNum;
     [SerializeField] private Vector3 SpawnArea;
 
@@ -40,6 +41,7 @@ public class SpawnFish : MonoBehaviour
     [SerializeField] private float obstacleUnitWeight;
 
     public FishUnit[] units { get; set; }
+    public SharkMove[] sharkUnits { get; set; }
     public float MinSpeed { get => minSpeed; set => minSpeed = value; }
     public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
     public float CohesionUnitDist { get => cohesionUnitDist; set => cohesionUnitDist = value; }
@@ -60,25 +62,42 @@ public class SpawnFish : MonoBehaviour
 
     private void Update()
     {
-        for(int i = 0; i< units.Length;++i)
+        for (int i = 0; i < units.Length; ++i)
         {
-            units[i].MoveUnit();
+            if (unitGameObject != null)
+            {
+                units[i].MoveUnit();
+            }
+            if (sharkGameObject != null)
+            {
+                sharkUnits[i].MoveUnit();
+            }
         }
     }
 
     void UnitsSpawn()
     {
         units = new FishUnit[spawnNum];
-        for(int i =0;i<spawnNum;++i)
+        sharkUnits = new SharkMove[spawnNum];
+        for (int i = 0; i < spawnNum; ++i)
         {
             //random position in sphere
             var randomPosition = Random.insideUnitSphere;
             randomPosition = new Vector3(randomPosition.x * SpawnArea.x, randomPosition.y * SpawnArea.y, randomPosition.z * SpawnArea.z);
             var spawnPosition = transform.position + randomPosition;
             var rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            units[i] = Instantiate(unitGameObject, spawnPosition, rotation);
-            units[i].GetSpawnFish(this);
-            units[i].InitializeSpeed(Random.Range(MinSpeed, MaxSpeed));
+            if (unitGameObject != null)
+            {
+                units[i] = Instantiate(unitGameObject, spawnPosition, rotation);
+                units[i].GetSpawnFish(this);
+                units[i].InitializeSpeed(Random.Range(MinSpeed, MaxSpeed));
+            }
+            if (sharkGameObject != null)
+            {
+                sharkUnits[i] = Instantiate(sharkGameObject, spawnPosition, rotation);
+                sharkUnits[i].GetSpawnFish(this);
+            }
         }
+        
     }
 }
