@@ -56,6 +56,10 @@ public class FishUnit : MonoBehaviour
 
         unitTransform.forward = moveVector;
         unitTransform.position += moveVector * Time.deltaTime;
+        for(int i =0; i< directionsToCheck.Length;i++)
+        {
+            Debug.DrawRay(unitTransform.position, directionsToCheck[i], Color.green);
+        }
     }
 
     void FindNeighbors()
